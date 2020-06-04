@@ -8,10 +8,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+var serveStatic = require('serve-static')
+var path = require('path')
 
 var app = express();
 
 app.use(cors());
+app.use(serveStatic(path.join(__dirname, 'dist')))
 
 app.use(bodyParser.json({ limit: '100mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }))
@@ -38,4 +41,6 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500).send('Error')
 });
 
-module.exports = app;
+var port = process.env.PORT || 8000
+app.listen(port)
+console.log('server started ' + port)
