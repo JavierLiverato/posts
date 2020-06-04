@@ -23,7 +23,9 @@ app.use('/api/v1/auth', auth);
 app.use('/api/v1/users', users);
 app.use('/api/v1/posts', posts);
 
-mongoose.connect(configDB.url, { server: { auto_reconnect: true } }, (err, db) => {
+var db_url = process.env.MONGO_URL || configDB.url
+console.log('trying to connect to: '+db_url);
+mongoose.connect(db_url, { server: { auto_reconnect: true } }, (err, db) => {
     err ? console.log("connection " + err.message + "") : console.log("success DB connection")
 });
 
