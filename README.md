@@ -9,15 +9,13 @@ Para poner en marcha el proyecto siga los siguientes pasos:
 3. ejecute el proyecto con el comando `npm start`
 
 Los API Endpoint se encuentran en la carpeta postman, para ejecutarlo debe instalar postman 
-# https://www.postman.com/
+### https://www.postman.com/
 
-posterior a esto se debe importar la collección 
-# test.postman_environment.json
+posterior a esto se debe importar la collección "Test Posts.postman_collection.json"
 
-finalmente, se debe importar el environment 
-# Test Posts.postman_collection.json
+finalmente, se debe importar el environment "test.postman_environment.json"
 
 la raíz del proyecto se encuentra en 
-# https://test-posts.herokuapp.com/
+### https://test-posts.herokuapp.com/
 sin embargo, no cuenta con una ventana de bienvenida por lo cuál solo se puede acceder mediante los servicios del archivo postman
 
