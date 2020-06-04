@@ -2,11 +2,10 @@
 
 /**
  * Module dependencies.
-*/
+ */
 
 var app = require('../app');
 var debug = require('debug')('ecommerce:server');
-var http = require('http');
 var https = require('https');
 
 /**
@@ -17,7 +16,7 @@ var port = normalizePort(process.env.PORT || '4006');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTPs server.
  */
 
 var server = https.createServer(app);
