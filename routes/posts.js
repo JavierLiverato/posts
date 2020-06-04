@@ -5,7 +5,11 @@ const auth = require('../middleware/auth')
 let PostController = require('../controllers/PostController');
 
 router.get('/', [auth.required], async (req, res) => {
+    console.log('1---',req.payload);
+    
     const resp = await PostController.index(req)
+    console.log('222');
+    
     if (resp.code >= 400) console.error({result: resp.data})
     return res.status(resp.code).send({result: resp.data})
 });
