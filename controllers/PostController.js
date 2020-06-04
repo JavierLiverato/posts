@@ -19,12 +19,18 @@ exports.index = async function (req) {
       ]
     } : { userID: req.payload.id, deletedAt: null }
 
+    console.log('>>>', query);
+    
   return await Post.find(query)
     .skip((perPage * page) - perPage)
     .limit(perPage)
     .then(posts => {
+      console.log(posts,'<<<<<<<<<<<<<<<<<posts');
+      
       return { data: { message: 'Posts encontrados', posts }, code: 200 }
     }).catch(reason => {
+      console.log(reason,'<<<<<<<<<reason catch');
+      
       return { data: { errors: processErrors(reason).errors }, code: 422 }
     })
 }
