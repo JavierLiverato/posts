@@ -4,6 +4,10 @@ var router = express.Router();
 const auth = require('../middleware/auth')
 let AuthController = require('../controllers/AuthController');
 
+router.get('/welcome', async (req, res) => {
+    return res.status(200).send('bienvenido!!')
+});
+
 router.post('/login', async (req, res) => {
     const resp = await AuthController.login(req)
     if (resp.code >= 400) console.error({result: resp.data})
